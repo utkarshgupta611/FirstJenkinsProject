@@ -1,13 +1,16 @@
 pipeline{
     agent any
 
+    tools{
+        maven "MAVEN_HOME"
+    }
+
     stages{
 
-        stage ('Compiling Stage') {
+        stage ('Building Stage') {
             steps {
-                withMaven(maven : 'MAVEN_HOME') {
                 // bat'mvn clean compile'
-                bat "mvn -Dmaven.test.failure.ignore=true clean compile"
+                bat "mvn -Dmaven.test.failure.ignore=true clean package"
             }
             }
         }
