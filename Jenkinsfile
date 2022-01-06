@@ -6,7 +6,8 @@ pipeline{
         stage ('Compiling Stage') {
             steps {
                 withMaven(maven : 'MAVEN_HOME') {
-                bat'mvn clean compile'
+                // bat'mvn clean compile'
+                bat "mvn -Dmaven.test.failure.ignore=true clean compile"
             }
             }
         }
@@ -14,7 +15,7 @@ pipeline{
         stage ('Testing Stage') {
            steps {
                 withMaven(maven : 'MAVEN_HOME') {
-                bat'mvn test'
+                bat "mvn test"
             }
            }
         }
@@ -22,7 +23,8 @@ pipeline{
         stage ('Deployment Stage') {
            steps{
                 withMaven(maven : 'MAVEN_HOME') {
-                bat'mvn deploy'
+                // bat'mvn deploy'
+                bat "mvn -Dmaven.test.failure.ignore=true deploy"
             }
            }
         }
