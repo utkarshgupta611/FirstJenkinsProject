@@ -10,7 +10,8 @@ pipeline{
         stage ('Building Stage') {
             steps {
                 // bat'mvn clean compile'
-                bat "mvn -Dmaven.test.failure.ignore=true clean package"
+                // bat "mvn -Dmaven.test.failure.ignore=true clean package"
+                sh "mvn clean package"
                 }
             }
 
