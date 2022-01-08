@@ -18,7 +18,8 @@ pipeline{
         stage ('Testing Stage') {
            steps {
                 
-                bat "mvn test"
+                // bat "mvn test"
+                 sh "mvn test"
             }
            }
         
@@ -27,7 +28,8 @@ pipeline{
            steps{
                 
                 // bat'mvn deploy'
-                bat "mvn -Dmaven.test.failure.ignore=true deploy"
+                // bat "mvn -Dmaven.test.failure.ignore=true deploy"
+                 sh "echo deployed...."
             }
            }
         
