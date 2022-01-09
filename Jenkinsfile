@@ -11,7 +11,7 @@ pipeline{
             steps {
                 // bat'mvn clean compile'
                 // bat "mvn -Dmaven.test.failure.ignore=true clean package"
-                sh "mvn clean build"
+                sh "mvn clean package"
                 }
             }
 
